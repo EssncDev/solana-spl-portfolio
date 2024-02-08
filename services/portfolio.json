@@ -1,0 +1,24 @@
+{
+    "splToken": {
+        "WENWENvqqNya429ubCdR81ZmD69brwQaaBYY6p3LCpk": { "slug": "WEN", "amount": 1930956 },
+        "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN": { "slug": "JUP", "amount": 600 },
+        "GJbqqvGofsJoKooprYimTfa3oiQEMLEBZcSS5hgtWLaa": { "slug": "Stonks", "amount": 7552 },
+        "mb1eu7TzEc71KxDpsmsKoucSSuuoGLv1drys1oP2jh6": { "slug": "Helium", "amount": 3030 },
+        "H7ed7UgcLp3ax4X1CQ5WuWDn6d1pprfMMYiv5ejwLWWU": { "slug": "Chonky", "amount": 298156 },
+        "7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr": { "slug": "popcat", "amount": 2390 },
+        "BqVHWpwUDgMik5gbTciFfozadpE2oZth5bxCDrgbDt52": { "slug": "OPOS", "amount": 233 },
+        "FSM8TmWxGFUjM7Rs6Wt9DHx3ZQAMX6vC4bN8r5PjSvE8": { "slug": "OOF", "amount": 1415 }
+    },
+    "AEVO": {
+        "DYM": { "slug": "DYM", "amount": 74 }
+    },
+    "TRADEJOE": {
+        "USDT" : { "address": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7" },
+        "tokens" : {
+            "0x420fca0121dc28039145009570975747295f2329": { "slug": "COQ", "amount": 41000000 }
+        }
+    },
+    "WHALESMARKET": {
+        "MAGIC-EDEN": { "slug": "Magic Eden", "amount": 7500 }
+    }
+}

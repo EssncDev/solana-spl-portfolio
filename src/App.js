@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+
+import GetTokenPrices from './Components/TokenPricing';
+import PortfolioValue from './Components/PortfolioStats';
+import PortfolioChart from './Components/PortfolioGraph';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='portfolioStats'>
+        <div className='sidebar'>
+          < GetTokenPrices />
+        </div>
+        <div className='portfolio'>
+          <div className='portfolioHeader'>
+            < PortfolioValue /> 
+          </div>
+          <div className='portfolioChart'>
+            < PortfolioChart />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

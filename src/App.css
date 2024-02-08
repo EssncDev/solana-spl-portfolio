@@ -1,38 +1,95 @@
+:root{
+  --hover-color: #286ac0;
+}
+
+HTML {
+  background-color: #f6f6f6;
+}
+
 .App {
   text-align: center;
+  color: #161616;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.portfolioStats {
+  display: flex;
+  flex-direction: row;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.clockHeader h2{
+  padding-top: 10px;
+  padding-bottom: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar {
+  width: 20svw;
+}
+
+.tokenList {
+  display: flex;
+  flex-direction: column;
+
+  list-style: none;
+
+}
+
+.tokenSlot {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  height: 100px;
+  width: 200px;
+
+  color: #161616;
+  font-size: small;
+
+  margin: 5px;
+
+  border: 1px solid #161616;
+  border-radius: 25px;
+}
+
+.tokenStats {
+  display: flex;
+  flex-direction: row;
+}
+
+.tokenSlot:hover {
+  color: var(--hover-color);
+  border: 1px solid var(--hover-color);
+}
+
+.tokenSlot div p {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: start;
+}
+
+.tokenSlot div p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.portfolioHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  width: 50svw;
+}
+
+.portfolioDisplay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  padding-left: 75px;
 }
