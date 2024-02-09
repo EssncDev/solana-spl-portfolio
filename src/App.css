@@ -16,13 +16,8 @@ HTML {
   flex-direction: row;
 }
 
-.clockHeader h2{
-  padding-top: 10px;
-  padding-bottom: 25px;
-}
-
 .sidebar {
-  width: 20svw;
+  min-width: 20svw;
 }
 
 .tokenList {
@@ -76,10 +71,42 @@ HTML {
 .portfolioHeader {
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 
   width: 50svw;
+}
+
+.generalInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 20svw;
+}
+
+.portfolioStats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 30svw;
+}
+
+.solanaStas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 50px;
+  width: 200px;
+
+  border: 1px solid black;
+  border-radius: 5px;
+
+  margin-left: 10svw;
+
 }
 
 .portfolioDisplay {

@@ -163,8 +163,8 @@ const saveDataInDb = async( insertValue ) => {
 
 const getTokenPrices = async() => {
     const tokenArray = [];
-    for (const tokenAddress in portfolioJson.splToken) {
-        const data = portfolioJson.splToken[tokenAddress];
+    for (const tokenAddress in portfolioJson.JUP) {
+        const data = portfolioJson.JUP[tokenAddress];
         const res = await fetchJupData(tokenAddress);
         if (res) {
             tokenArray.push(
@@ -187,6 +187,7 @@ async function main(){
         if(results.includes(undefined)) {
             exit();
         }
+        
         const tokenArray = results.flat();
         for (const elmt of tokenArray) {
             portfolioValue += elmt.value;

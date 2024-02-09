@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 function PortfolioValue() {
   const [data, setData] = useState();
   const [start, setStart] = useState();
+  const [solPrice, setSolPrice] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -11,7 +12,6 @@ function PortfolioValue() {
         async function calcPortfolioValue(array) {
           let portfolioValue = 0;
           const arrayWithoutTs = array.slice(0, array.length -1);
-          console.log(arrayWithoutTs)
           for (const elmt of arrayWithoutTs) {
               if ( elmt.value ) {
                 portfolioValue += elmt.value;
@@ -20,6 +20,14 @@ function PortfolioValue() {
           if(portfolioValue > 0) {
             return (portfolioValue).toFixed(2);
           }
+        }
+
+        const req = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd');
+        if (req.status === 200) {
+          const res = await req.json();
+          setSolPrice(res.solana.usd);
+        } else {
+          setSolPrice(1);
         }
 
         const response = await fetch("http://localhost:5000/portfolio", {
@@ -53,11 +61,17 @@ function PortfolioValue() {
   }, []);
 
   return (
-    <div>
+    <div className="generalInfo">
+      <div className="portfolioStats">
         <p> Airdrop Portfolio:</p>
-        <p>${data} USD | {(data*0.93).toFixed(2)}€</p>
-        { (data/start > 1) ? <p style={{color: 'green'}}>Since start {(((data/start)-1)*100).toFixed(1)}% | ${(data-start).toFixed(1)} USD </p> : <p style={{color:'red'}}>Since start {(((data/start)-1)*100).toFixed(1)}% | ${(data-start).toFixed(1)} USD</p>}
+        <p>${data} USD</p>
+        { (data/start > 1) ? <p style={{color: 'green'}}>Since start {(((data/start)-1)*100).toFixed(1)}% (${(data-start).toFixed(1)} USD)</p> : <p style={{color:'red'}}>Since start {(((data/start)-1)*100).toFixed(1)}% | ${(data-start).toFixed(1)} USD</p>}
+      </div>
+      <div className="solanaStas">
+        <p>SOL: ${solPrice} USD</p>
+      </div>
     </div>
+    
   );
 }
 

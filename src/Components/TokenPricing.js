@@ -60,7 +60,7 @@ function GetTokenPrices() {
                   </div>
                   <div>
                     <p>@{(parseFloat(item.price)).toFixed(3)} USD</p>
-                    <p>${(item.value).toFixed(2)} USD</p>
+                    <p>${(item.value).toFixed(1)} USD</p>
                   </div>
                 </div>
               </div>
