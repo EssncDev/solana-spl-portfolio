@@ -25,3 +25,6 @@ echo "Node.js version:"
 node -v
 echo "Redis CLI version:"
 redis-cli --version
+
+# download pm2
+npm i -g pm2 
