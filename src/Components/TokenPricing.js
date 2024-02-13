@@ -48,6 +48,7 @@ function GetTokenPrices() {
     <div>
        <ul className="tokenList">
         {data.map((item, index) => (
+          (item.value != 0) && 
             <li key={index}>
               <div className="tokenSlot">
                 <div>

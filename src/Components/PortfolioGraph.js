@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { LineChart } from '@mui/x-charts/LineChart';
 
+/**
+ * HOW MANY POINTS SHALL BE VISIBLE ON CHART
+ * 
+ * DEFAULT = 10
+ * 
+ * SUGGESTION: 5, 10, 15, 20, 25 
+ * 
+ * EVERY ADDITIONAL DATAPOINT WILL MAKE IT LOOK MESSI
+ */
+const datapoints = 10;
+
 function PortfolioChart() {
 
     const [dataPoints, setDataPoints] = useState([]);
@@ -21,27 +32,39 @@ function PortfolioChart() {
           });
           
           if (response.status === 200) {
-              let portfolioDataPoints = [];
-              let timestampArray = [];
-              let jsonData = await response.json();
-              const stepGap = (jsonData.data).length / 10;
-              for (let i = 0; i < (jsonData.data).length; i += Math.floor(stepGap)-1) {
-                const snapshot = jsonData.data[i];
-                let totalValue = 0;
-                for (const elmt in snapshot) {
-                    const jsonElmt = snapshot[elmt];
-                    if ( jsonElmt.value ) {
-                        totalValue += jsonElmt.value;
-                    } else {
-                        timestampArray.push(new Date(jsonElmt * 1000))
-                    }
-                }
-                portfolioDataPoints.push(totalValue)
+            let portfolioDataPoints = [];
+            let timestampArray = [];
+            let jsonData = await response.json();
+            const stepGap = (jsonData.data).length / (datapoints - 1);
+
+            for (let i = 0; i < (jsonData.data).length; i += Math.floor(stepGap)-1) {
+              const snapshot = jsonData.data[i];
+              let totalValue = 0;
+              for (const elmt in snapshot) {
+                  const jsonElmt = snapshot[elmt];
+                  if ( jsonElmt.value ) {
+                      totalValue += jsonElmt.value;
+                  } else {
+                      timestampArray.push(new Date(jsonElmt * 1000))
+                  }
               }
+              portfolioDataPoints.push(totalValue)
+            }
 
+            let totalValue = 0;
+            const lastElmt = jsonData.data[(jsonData.data).length - 1];
+            for (const elmt in lastElmt) {
+              const jsonElmt = lastElmt[elmt];
+              if ( jsonElmt.value ) {
+                  totalValue += jsonElmt.value;
+              } else {
+                  timestampArray.push(new Date(jsonElmt * 1000))
+              }
+            }
+            portfolioDataPoints.push(totalValue)
 
-              setDataPoints(portfolioDataPoints)
-              setTsPoints(timestampArray)
+            setDataPoints(portfolioDataPoints)
+            setTsPoints(timestampArray)
           }
         } catch (error) {
           //console.error('Error fetching data:', error);
@@ -50,7 +73,7 @@ function PortfolioChart() {
 
   
       fetchData();
-      const intervalId = setInterval(fetchData, 60*1000);
+      const intervalId = setInterval(fetchData, 20*1000);
   
       return () => clearInterval(intervalId);
     }, []);

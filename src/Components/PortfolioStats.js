@@ -63,7 +63,7 @@ function PortfolioValue() {
   return (
     <div className="generalInfo">
       <div className="portfolioStats">
-        <p> Airdrop Portfolio:</p>
+        <p>Portfolio:</p>
         <p>${data} USD</p>
         { (data/start > 1) ? <p style={{color: 'green'}}>Since start {(((data/start)-1)*100).toFixed(1)}% (${(data-start).toFixed(1)} USD)</p> : <p style={{color:'red'}}>Since start {(((data/start)-1)*100).toFixed(1)}% | ${(data-start).toFixed(1)} USD</p>}
       </div>

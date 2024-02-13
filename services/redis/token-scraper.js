@@ -142,7 +142,7 @@ const buildWhaleMarketTokens = async() => {
             "token": undefined,
             "slug": meElmt[0].symbol,
             "price": parseFloat(meElmt[0].average_asks), 
-            "value": parseFloat(meElmt[0].average_asks) * 7500
+            "value": parseFloat(meElmt[0].average_asks) * portfolioJson?.WHALESMARKET?.['MAGIC-EDEN']?.amount
         }
     );
 }
@@ -199,5 +199,6 @@ async function main(){
     }
     
 }
+
 main();
 setInterval(main, 5*60*1000);
